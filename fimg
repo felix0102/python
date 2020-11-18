@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+import os,shutil,time
+
+
+VUE_TMP_DIR = "/Users/felix/Desktop/vueimg"
+VUE_IMG_DIR = os.getcwd() + "/img"
+
+#print (VUE_IMG_DIR)
+
+
+def list_img(tmpDir):
+    img_list = []
+    for parent, dirNames, fileNames in os.walk(tmpDir):
+        for name in fileNames:
+            ext = ['.png', '.jpg']
+            if name.endswith(tuple(ext)):
+                img_list.append(name)
+    return img_list
+
+img_list = list_img(VUE_TMP_DIR)
+#print (img_list)
+
+if not os.path.exists(VUE_IMG_DIR) :
+    os.makedirs(VUE_IMG_DIR)
+
+# move the img file
+
+format_date = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time()))
+for i,img in enumerate(img_list):
+    img_src = VUE_TMP_DIR + os.sep + img
+    name_from = os.path.splitext(img)[0]
+    name_to = format_date + "-" + str(i+1) 
+    ext = os.path.splitext(img)[1]
+    img_dest = VUE_IMG_DIR + os.sep +name_to +ext
+    shutil.move(img_src,img_dest)
+    print("![%s](%s)"%(name_from,"./img/"+name_to+ext))
