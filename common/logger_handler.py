@@ -1,5 +1,4 @@
 import logging
-from common.yaml_handler import yaml_data
 class LoggerHandler(logging.Logger):
     # 继承Logger类
     def __init__(self,
@@ -26,7 +25,7 @@ class LoggerHandler(logging.Logger):
         stream_handler.setFormatter(fmt)
         self.addHandler(stream_handler)
 # 从yaml配置文件中读取logging相关配置
-logger = LoggerHandler(name=yaml_data['logger']['name'],
-                       level=yaml_data['logger']['level'],
-                       file='./log.txt',
-                       format=yaml_data['logger']['format'])
+logger = LoggerHandler(name='ITester',
+                       level='DEBUG',
+                       file='./log.log',
+                       format='%(filename)s-%(lineno)d-%(asctime)s-%(levelname)s-%(message)s')
