@@ -12,7 +12,8 @@ mail_user="sys__warning"    #用户名
 #mail_pass="Syswarning__123"   #口令 
 mail_pass="PWCDHVIAWQNLXBJI"   #口令 
 sender = 'sys__warning@163.com'
-receivers = ['3040207@qq.com','liuxf0102@163.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+receivers = ['3040207@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+#receivers = ['3040207@qq.com','liuxf0102@163.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
    
 
 def sendemail(title,content):
