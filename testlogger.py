@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
 from common.logger_handler import logger
 
-logger.debug("test")
+
+
+logger.info('this is info')
+logger.debug('this is debug')
